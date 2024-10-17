@@ -35,7 +35,8 @@ Breaking down the example...
       accountId: "3051387316918867566", // test account
       sandbox: true,
     });
-
+    
+    // attributes should be correctly mapped to values available through RUNA
     await launcher.selectPlacements({
       attributes: {
         email: "customer@gmail.com",

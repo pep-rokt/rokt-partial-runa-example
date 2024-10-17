@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partial RUNA Rokt Sample</title>
+  <script src="https://s-cdn.rmp.rakuten.co.jp/js/aa.js" async></script>
+  <script type="module">
+    window.RoktLauncherScriptPromise = new Promise((resolve, reject) => {
+      const target = document.head || document.body;
+      const script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = "https://apps.rokt.com/wsdk/integrations/launcher.js";
+      script.fetchpriority = "high";
+      script.crossOrigin = "anonymous";
+      script.async = true;
+      script.id = "rokt-launcher";
+
+      script.addEventListener('load', () => resolve());
+      script.addEventListener('error', (error) => reject(error));
+
+      target.appendChild(script);
+    });
+  </script>
+
+</head>
+
+<body>
+  <h4>Top-Level App</h4>
+  <div id="rdn-adspot-28153-90687576" style="z-index: 999; margin-left: -8px; width: 1px; height: 1px;">
+    <iframe src='/mock_runa_frames/outer.html' id="outer_iframe" title="outer_iframe" frameborder="0" scrolling="no"
+      marginheight="0" marginwidth="0" data-rdn-session="c1da072710aa88838a1b8d1588ad6f43" style="display: block;"
+      width="100%" height="100%"></iframe>
+  </div>
+  <script>
+    var rdntag = rdntag || {};
+    rdntag.cmd = rdntag.cmd || [];
+    rdntag.cmd.push(function () {
+      rdntag
+        .defineAd("28153", "rdn-adspot-28153-90687576").setDebug(true)
+
+      // rdntag.display("rdn-adspot-28153-90687576");
+    });
+  </script>
+</body>
+
+</html>

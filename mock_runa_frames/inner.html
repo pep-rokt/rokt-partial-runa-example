@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>inner_iframe</title>
+</head>
+
+<body>
+  <script type="module">
+
+    // Use top-level Rokt launcher to fetch offers (assuming top-level app and iframes share same-domain)
+    // Rokt Layout will render at the top-level where the SDK where the rokt-contorller-frame exists
+    await window.top.RoktLauncherScriptPromise;
+    const launcher = await window.top.Rokt.createLauncher({
+      accountId: "3051387316918867566", // test account
+      sandbox: true,
+    });
+
+    await launcher.selectPlacements({
+      attributes: {
+        email: "customer@gmail.com",
+        firstname: "John",
+        lastname: "Doe",
+        confirmationref: "12345",
+      },
+      identifier: 'confirm'
+    });
+  </script>
+</body>
+
+</html>

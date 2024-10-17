@@ -49,3 +49,4 @@ Breaking down the example...
   </script>
   ```
 - Since the launcher lives in the top-level app, the Rokt Overlay will also get rendered at the top-level of the application (outside of any RUNA iframe)
+- Note that the RUNA iframes in this example were hardcoded (and not injected via the `rdntag.display()` call). This is to override the [sandbox Rokt integration](https://storage.googleapis.com/rssp-dev-cdn/test/rokt2.html) provided by Rakuten while mocking the same-domain nested iframe presentation we observed in ad units served through RUNA.

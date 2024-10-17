@@ -1,6 +1,6 @@
 # ROKT "Partial RUNA" Integration Example
 
-This repo is an example Rokt integration that is partially served via RUNA. 
+This repo is an example Rokt integration that is partially served via RUNA. To demo, simply run `live-server` at the project root.
 
 Breaking down the example...
 - The Rokt SDK is loaded at the top-level via the following script:

@@ -9,17 +9,36 @@
 
 <body>
   <script type="module">
+    // access top-level document (assuming top-level app and iframes are same-domain)
+    const top = window.top.document;
 
-    // Use top-level Rokt launcher to fetch offers (assuming top-level app and iframes share same-domain)
+    // load Rokt wSDK & create Rokt launcher in top-level document
+    const roktLauncherScriptPromise = new Promise((resolve, reject) => {
+      const target = top.head || top.body;
+      const script = top.createElement("script");
+      script.type = "text/javascript";
+      script.src = "https://apps.rokt.com/wsdk/integrations/launcher.js";
+      script.fetchpriority = "high";
+      script.crossOrigin = "anonymous";
+      script.async = true;
+      script.id = "rokt-launcher";
+
+      script.addEventListener('load', () => resolve());
+      script.addEventListener('error', (error) => reject(error));
+
+      target.appendChild(script);
+    });
+
+    // Use top-level Rokt launcher to fetch offers 
     // Rokt Layout will render at the top-level where the SDK where the rokt-contorller-frame exists
-    await window.top.RoktLauncherScriptPromise;
+    await roktLauncherScriptPromise;
     const launcher = await window.top.Rokt.createLauncher({
-      accountId: "3051387316918867566", // test account
+      accountId: "3051387316918867566", // change to Rakuten JP account
       sandbox: true,
     });
 
     await launcher.selectPlacements({
-      // attributes should be correctly mapped to values available through RUNA
+      // attributes are hardcoded as example; please map to correct values available through RUNA
       attributes: {
         email: "customer@gmail.com",
         firstname: "John",

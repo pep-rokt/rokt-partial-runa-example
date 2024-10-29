@@ -6,24 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Partial RUNA Rokt Sample</title>
   <script src="https://s-cdn.rmp.rakuten.co.jp/js/aa.js" async></script>
-  <script type="module">
-    window.RoktLauncherScriptPromise = new Promise((resolve, reject) => {
-      const target = document.head || document.body;
-      const script = document.createElement("script");
-      script.type = "text/javascript";
-      script.src = "https://apps.rokt.com/wsdk/integrations/launcher.js";
-      script.fetchpriority = "high";
-      script.crossOrigin = "anonymous";
-      script.async = true;
-      script.id = "rokt-launcher";
-
-      script.addEventListener('load', () => resolve());
-      script.addEventListener('error', (error) => reject(error));
-
-      target.appendChild(script);
-    });
-  </script>
-
 </head>
 
 <body>

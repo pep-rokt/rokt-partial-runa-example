@@ -33,8 +33,8 @@ Breaking down the example...
     // Rokt Layout will render at the top-level where the SDK where the rokt-contorller-frame exists
     await roktLauncherScriptPromise;
     const launcher = await window.top.Rokt.createLauncher({
-      accountId: "3051387316918867566", // change to Rakuten JP account
-      sandbox: true,
+      accountId: "2921597674431243178",
+      sandbox: true, // remove when going live
     });
 
     await launcher.selectPlacements({
@@ -44,8 +44,7 @@ Breaking down the example...
         firstname: "John",
         lastname: "Doe",
         confirmationref: "12345",
-      },
-      identifier: 'confirm'
+      }
     });
   </script>
   ```
